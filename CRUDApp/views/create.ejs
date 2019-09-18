@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+   
+  <head>
+    <meta charset="utf-8" />
+    <title>Create Student</title>
+    
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+    />
+    
+  </head>
+  <style>
+    .def{
+        color: lightgray;
+        font-weight: bolder
+  }
+  </style>
+  <!-- <script>
+   $('.ui.form')
+  .form({
+    fields: {
+      sid: {
+        identifier: 'sid',
+        rules: [
+          {
+            type   : 'regExp',
+            value: /[0-9]{4}-[0-9]{5}/,
+            prompt : 'Please enter your valid SID'
+          }
+        ]
+      },
+      first_name: {
+        identifier: 'first_name',
+        rules: [
+          {
+            type   : 'empty',
+            prompt : 'Please enter your First Name'
+          }
+        ]
+      },
+      last_name: {
+        identifier: 'last_name',
+        rules: [
+          {
+            type   : 'empty',
+            prompt : 'Please enter your First Name'
+          }
+        ]
+      }
+    }
+  })
+;
+</script> -->
+  <body class="container">
+    <div class="ui container">
+      <div class="ui block header">
+        <h1>Student Registration<i class="flag ph"></i></h1>
+      </div>
+      <div class="content">
+        <div class="ui form">
+          <form action="/create" method="POST">
+            <div class="three fields ">
+              <div class="field required">
+                <label>SID</label>
+                <input type="text" name="sid" placeholder="SID" required/>
+              </div>
+              <div class="field required">
+                <label>First name</label>
+                <input type="text" name="first_name" placeholder="First Name" required/>
+              </div>
+              <div class="field required">
+                <label>Last name</label>
+                <input type="text" name="last_name" placeholder="Last Name" required/>
+              </div>
+            </div>
+            <div class="fields">
+              <div class="four wide field required">
+                <label>Level</label>
+                <select
+                  class="ui dropdown"
+                  name="level"
+                  aria-placeholder="Level" required
+                >
+                <option value="" hidden selected  >Level</option>
+                  <option value="Freshman">Freshman</option>
+                  <option value="Junior">Junior</option>
+                  <option value="Sophomore">Sophomore</option>
+                  <option value="Senior">Senior</option>
+                </select>
+              </div>
+              <div class="five wide field required ui calendar">
+                <label>Birthday</label>
+                <input type="text" name="birthday" placeholder="Birthday" required/>
+              </div>
+              <div class="five wide field required">
+                <label>Status</label>
+                    <select class="ui dropdown" name="status" required>
+                        <option value=""  hidden selected  >Status</option>
+                      <option value="Regular">Regular</option>
+                      <option value="Irregular">Irregular</option>
+                    </select>
+                </div>
+                <div class="three wide field required def">
+                  <label>Gender</label>
+                    <select name="gender" class="ui dropdown" required>
+                        <option  selected  hidden value="">Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+              </div>
+            </div>
+            <button class="ui button positive right aligned" type="submit"/>
+              <i class="save icon"></i>Save
+        </button>
+            <a class="ui button primary left aligned" href="/studentlist"
+              ><i class="list icon"></i>View Users</a
+            >
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.slim.js"
+    integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI="
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js"></script>
+  </body>
+</html>
+

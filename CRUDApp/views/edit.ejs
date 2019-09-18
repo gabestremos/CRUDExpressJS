@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+   
+  <head>
+    <meta charset="utf-8" />
+    <title>Update Student</title>
+    
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+    />
+  </head>
+  <body class="container">
+    <div class="ui container">
+      <div class="ui block header">
+        <h1>Update Student<i class="flag ph"></i></h1>
+      </div>
+      <div class="content">
+        <div class="ui form">
+            <% if(students.length){%>
+                <%students.forEach((student)=>{ %>
+          <form action="/edit/<%=student.sid%>" method="POST">
+            <div class="three fields ">
+              <div class="field required">
+                <label>SID</label>
+                <input type="text" name="sid" placeholder="SID" value="<%=student.sid%>" disabled />
+              </div>
+              <div class="field required">
+                <label>First name</label>
+                <input type="text" name="first_name" placeholder="First Name" value="<%=student.first_name%>" required/>
+              </div>
+              <div class="field required">
+                <label>Last name</label>
+                <input type="text" name="last_name" placeholder="Last Name" value="<%=student.last_name%>" required/>
+              </div>
+            </div>
+            <div class="fields">
+              <div class="four wide field required">
+                <label>Level</label>
+                <select
+                  class="ui dropdown"
+                  name="level"
+                  aria-placeholder="Level" required
+                >
+                <%if(student.level==='Freshman'){%>
+                  <option value="Freshman" selected>Freshman</option>
+                  <option value="Junior">Junior</option>
+                  <option value="Sophomore">Sophomore</option>
+                  <option value="Senior">Senior</option>
+                  <%}else if(student.level==='Junior'){%>
+                    <option value="Freshman" >Freshman</option>
+                    <option value="Junior" selected>Junior</option>
+                    <option value="Sophomore">Sophomore</option>
+                    <option value="Senior">Senior</option>
+                    <%}else if(student.level==='Sophomore'){%>
+                      <option value="Freshman" >Freshman</option>
+                      <option value="Junior" >Junior</option>
+                      <option value="Sophomore" selected>Sophomore</option>
+                      <option value="Senior">Senior</option>
+                      <%}else{%>
+                        <option value="Freshman" >Freshman</option>
+                        <option value="Junior" >Junior</option>
+                        <option value="Sophomore" >Sophomore</option>
+                        <option value="Senior" selected>Senior</option>
+                        <%}%>
+                </select>
+              </div>
+              <div class="five wide field required ui calendar">
+                <label>Birthday</label>
+                <input type="text" name="birthday" placeholder="Birthday" value="<%=new Date(student.birthday).toLocaleDateString()%>" required/>
+              </div>
+              <div class="five wide field required">
+                <label>Status</label>
+                    <select class="ui dropdown" name="status" required>
+                      <%if(student.status==='Regular'){%>
+                      <option value="Regular" selected>Regular</option>
+                      <option value="Irregular">Irregular</option>
+                      <%}else{%>
+                        <option value="Regular" >Regular</option>
+                        <option value="Irregular" selected>Irregular</option>
+                      <%}%>
+                    </select>
+                </div>
+                <div class="three wide field required def">
+                  <label>Gender</label>
+                    <select name="gender" class="ui dropdown" required>
+                        <%if(student.gender==='Male'){%>
+                        <option value="Male" selected>Male</option>
+                        <option value="Female">Female</option>
+                      <%}else{%>
+                        <option value="Male" >Male</option>
+                        <option value="Female" selected>Female</option>
+                        <%}%>
+                    </select>
+                </div>
+              </div>
+            </div>
+            <button class="ui button positive right aligned" type="submit"/>
+              <i class="save icon"></i>Update
+        </button>
+            <a class="ui button primary left aligned" href="/studentlist"
+              ><i class="close icon"></i>Cancel</a
+            >
+          </form>
+          <%})%>
+          <%}%>
+        </div>
+      </div>
+    </div>
+
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.slim.js"
+    integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI="
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js"></script>
+  </body>
+</html>
+

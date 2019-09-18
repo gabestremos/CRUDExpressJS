@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+  />
+  <head>
+    <meta charset="UTF-8" />
+    <title>Student List</title>
+  </head>
+  <body>
+    <div class="ui container">
+      <div class="ui block header">
+        <h1>Student List<i class="flag ph"></i></h1>
+      </div>
+
+      <table class="ui basic celled table">
+        <thead>
+          <tr>
+            <th>SID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th class="five wide">Manage</th>
+          </tr>
+        </thead>
+
+        <% if(students.length){ %> <% students.forEach((student)=>{ %>
+        <tbody>
+          <tr>
+            <td><%=student.sid%></td>
+            <td><%=student.first_name%></td>
+            <td><%=student.last_name%></td>
+            <td>
+              <a
+                class="ui button labeled icon mini float right aligned google plus"
+                href="/profile/<%=student.sid%>"
+              >
+                <i class="user icon"></i>View</a
+              >
+              <a
+                class="ui button labeled icon mini float right aligned primary"
+                href="/edit/<%=student.sid%>"
+              >
+                <i class="edit icon"></i>Edit</a
+              >
+              <a
+                class="ui button labeled icon mini float right aligned negative"
+                href="/delete/<%=student.sid%>"
+                onclick="return confirm('Are you sure you want to delete?')"
+              >
+                <i class="trash icon"></i>Delete</a
+              >
+            </td>
+            <%})%> <%} else { %>
+            <h1>No data available!</h1>
+            <% } %>
+          </tr>
+        </tbody>
+      </table>
+
+      <a class="ui button positive" href="/create"
+        ><i class="plus icon"></i>Add New Student</a
+      >
+    </div>
+  </body>
+</html>
