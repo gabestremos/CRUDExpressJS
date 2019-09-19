@@ -10,29 +10,25 @@ updateStudentRouter.route("/edit/:sid").get((req, res, next) => {
         res.render("edit", { students: student });
       },
       err => {
-        next(err);
+        return next(err);
       }
     )
     .catch(err => {
-      next(err);
+      return next(err);
     });
 });
 updateStudentRouter.route("/edit/:sid").post((req, res, next) => {
   Students.update({ sid: req.params.sid }, { $set: req.body }, { new: true })
     .then(
       student => {
-        // res.status(200).setHeader("Content-Type", "application/json");
-        // res.json(student);
-        //res.render("edit", { students: student });
         res.redirect("/studentlist");
       },
       err => {
-        next(err);
+        return next(err);
       }
     )
     .catch(err => {
-      next(err);
+      return next(err);
     });
 });
-
 module.exports = updateStudentRouter;

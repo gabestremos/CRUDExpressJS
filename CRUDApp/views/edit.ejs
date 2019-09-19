@@ -68,7 +68,7 @@
               </div>
               <div class="five wide field required ui calendar">
                 <label>Birthday</label>
-                <input type="text" name="birthday" placeholder="Birthday" value="<%=new Date(student.birthday).toLocaleDateString()%>" required/>
+                <input type="text" name="birthday" placeholder="Birthday" value="<%=new Date(student.birthday).toLocaleDateString()%>" disabled/>
               </div>
               <div class="five wide field required">
                 <label>Status</label>
@@ -98,8 +98,8 @@
             </div>
             <button class="ui button positive right aligned" type="submit"/>
               <i class="save icon"></i>Update
-        </button>
-            <a class="ui button primary left aligned" href="/studentlist"
+            </button>
+            <a class="ui button secondary left aligned" href="/studentlist"
               ><i class="close icon"></i>Cancel</a
             >
           </form>

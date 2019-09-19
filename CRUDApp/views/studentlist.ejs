@@ -25,8 +25,8 @@
           </tr>
         </thead>
 
-        <% if(students.length){ %> <% students.forEach((student)=>{ %>
         <tbody>
+          <% if(students.length){ %> <% students.forEach((student)=>{ %>
           <tr>
             <td><%=student.sid%></td>
             <td><%=student.first_name%></td>
@@ -52,10 +52,16 @@
                 <i class="trash icon"></i>Delete</a
               >
             </td>
-            <%})%> <%} else { %>
-            <h1>No data available!</h1>
-            <% } %>
           </tr>
+          <%})%> <%} else { %>
+          <tr class="center aligned">
+            <td colspan="100%">
+              <h2>
+                No data available!
+              </h2>
+            </td>
+          </tr>
+          <% } %>
         </tbody>
       </table>
 

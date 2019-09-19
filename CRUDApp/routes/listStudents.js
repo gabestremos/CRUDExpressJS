@@ -9,9 +9,6 @@ listStudentsRouter.route("/studentlist").get((req, res, next) => {
   Students.find({})
     .then(
       student => {
-        //res.status(200).setHeader("Content-Type", "application/json");
-        // res.json(students);
-        //console.log(student);
         res.render("studentlist", { students: student });
       },
       err => {

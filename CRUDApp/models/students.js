@@ -6,7 +6,7 @@ const studentSchema = new Schema({
     type: String,
     validate: {
       validator: s => {
-        return /[0-9]{4}-[0-9]{5}/.test(s);
+        return /[0-9]{4}\b-[0-9]{5}\b/.test(s);
       },
       message: msg => `${msg.value} is not a valid SID!`
     },

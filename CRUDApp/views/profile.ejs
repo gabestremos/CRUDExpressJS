@@ -21,6 +21,16 @@
         <div class="ui one column doubling stackable grid container">
           <div class="column">
             <h1 class="ui header">
+              <% if(student.gender=="Male"){%>
+              <img class="ui medium circular image" src="/images/boy.png" />
+              <%}else{%>
+
+              <img class="ui medium circular image" src="/images/girl.png" />
+              <% } %>
+              <!-- <i>
+                <i class="ui medium circular"> </i>
+                <i class="user icon"></i>
+              </i> -->
               <%=student.first_name%> <%=student.last_name%>
               <div class="sub header">
                 SID: <%=student.sid%>
@@ -54,8 +64,13 @@
             <h3 class="ui header">
               Age
               <div class="sub header">
-                <%=new Date().toLocaleDateString()-new
-                Date(student.birthday).toLocaleDateString() %>
+                <% var a=(new Date(student.birthday).toLocaleDateString());
+                function getAge(DOB) { var today = new Date(); var birthDate =
+                new Date(DOB); var age = today.getFullYear() -
+                birthDate.getFullYear(); var m = today.getMonth() -
+                birthDate.getMonth(); if (m < 0 || (m === 0 && today.getDate() <
+                birthDate.getDate())) { age = age - 1; } return age; }%> <%=
+                getAge(a)%>
               </div>
             </h3>
           </div>
@@ -73,16 +88,18 @@
 
         <div class="ui one column doubling stackable grid container">
           <div class="column">
-            <h2 class="ui header">
+            <h3 class="ui header">
               Gender
               <div class="sub header">
                 <%=student.gender%>
               </div>
-            </h2>
+            </h3>
           </div>
         </div>
       </div>
-
+      <a class="ui button primary left aligned" href="/edit/<%=student.sid%>">
+        <i class="edit icon"></i>Edit</a
+      >
       <a
         class="ui button negative left aligned"
         href="/delete/<%=student.sid%>"
@@ -90,7 +107,7 @@
       >
         <i class="trash icon"></i>Delete Student</a
       >
-      <a class="ui button primary left aligned" href="/studentlist">
+      <a class="ui button google plus left aligned" href="/studentlist">
         <i class="list icon"></i>View Students</a
       >
 

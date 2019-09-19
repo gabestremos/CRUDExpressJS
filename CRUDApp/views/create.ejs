@@ -12,48 +12,7 @@
     />
     
   </head>
-  <style>
-    .def{
-        color: lightgray;
-        font-weight: bolder
-  }
-  </style>
-  <!-- <script>
-   $('.ui.form')
-  .form({
-    fields: {
-      sid: {
-        identifier: 'sid',
-        rules: [
-          {
-            type   : 'regExp',
-            value: /[0-9]{4}-[0-9]{5}/,
-            prompt : 'Please enter your valid SID'
-          }
-        ]
-      },
-      first_name: {
-        identifier: 'first_name',
-        rules: [
-          {
-            type   : 'empty',
-            prompt : 'Please enter your First Name'
-          }
-        ]
-      },
-      last_name: {
-        identifier: 'last_name',
-        rules: [
-          {
-            type   : 'empty',
-            prompt : 'Please enter your First Name'
-          }
-        ]
-      }
-    }
-  })
-;
-</script> -->
+ 
   <body class="container">
     <div class="ui container">
       <div class="ui block header">
@@ -93,7 +52,7 @@
               </div>
               <div class="five wide field required ui calendar">
                 <label>Birthday</label>
-                <input type="text" name="birthday" placeholder="Birthday" required/>
+                <input type="date" name="birthday" placeholder="Birthday" required/>
               </div>
               <div class="five wide field required">
                 <label>Status</label>
@@ -116,7 +75,7 @@
             <button class="ui button positive right aligned" type="submit"/>
               <i class="save icon"></i>Save
         </button>
-            <a class="ui button primary left aligned" href="/studentlist"
+            <a class="ui button google plus left aligned" href="/studentlist"
               ><i class="list icon"></i>View Users</a
             >
           </form>
@@ -129,6 +88,47 @@
     integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI="
     crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js"></script>
+
+     <script>
+   $('.ui.form')
+  .form({
+    inline: true,
+    fields: {
+      sid: {
+        identifier: 'sid',
+        rules: [
+          {
+            type   : 'regExp',
+            value: /\d{4}\b-\d{5}\b/,
+            prompt : 'Please enter valid SID.'
+          }
+        ]
+      }
+      // first_name:{
+      //   identifier:'first_name',
+      //   rules:[
+      //     {
+      //       type:'regExp',
+      //       value: /[A-Za-z\.]+/,
+      //       prompt:'First Name must not contain any number.'
+      //     }
+      //   ]
+      // },
+      // last_name:{
+      //   identifier:'last_name',
+      //   rules:[
+      //     {
+      //       type:'regExp',
+      //       value: /[A-Za-z\.]+/,
+      //       prompt:'Last Name must not contain any number.'
+      //     }
+      //   ]
+      // }
+    }
+  })
+;
+</script>
   </body>
 </html>
+
 

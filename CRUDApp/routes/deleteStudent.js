@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const express = require("express");
 const deleteStudentRouter = express.Router();
 const Students = require("../models/students");
-const regExp = /[0-9]{4}-[0-9]{5}/;
+const regExp = /[0-9]{4}\b-[0-9]{5}\b/;
 
 deleteStudentRouter.route("/delete/:sid").get((req, res, next) => {
   Students.find({ sid: req.params.sid }).then(student => {
